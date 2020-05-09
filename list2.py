@@ -5,7 +5,7 @@ Kenzie assignment: List2
 """
 # Your name, plus anyone who helped you with this assignment.
 # Give credit where credit is due.
-__author__ = "???"
+__author__ = "Howard"
 
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
@@ -28,8 +28,12 @@ __author__ = "???"
 
 
 def remove_adjacent(nums):
-    # your code here
-    return
+    for num in range(len(nums) - 1, 0, -1):
+        if nums[num] == nums[num-1]:
+            del nums[num]
+    
+
+    return nums
 
 
 # E. linear_merge
@@ -44,8 +48,20 @@ def remove_adjacent(nums):
 
 
 def linear_merge(list1, list2):
-    # your code here
-    return
+    len_list1 = len(list1)
+    len_list2 = len(list2)
+    index1, index2 = 0, 0
+    merged_list = []
+
+    while index1 < len_list1 and index2 < len_list2:
+        if list1[index1] < list2[index2]:
+            merged_list.append(list1[index1])
+            index1 += 1
+        else:
+            merged_list.append(list2[index2])
+            index2 += 1
+
+    return merged_list + list1[index1:] + list2[index2:] 
 
 
 # Provided simple test() function used in main() to print
